@@ -12,7 +12,7 @@
 * Синхронизируется только китайская оригинальная версия, поэтому функции остаются в соответствии с исходной версией.
 
 ### i18n: 
-<b>https://github.com/wjz304/arpl-i18n</b>
+<b>https://github.com/BikerIndian/arpl-i18n</b>
 * Многоязычная поддержка.
 * Содержит мои модификации.
 
@@ -20,15 +20,16 @@
 ## проиллюстрировать
 * ### [Демонстрация метода ввода команд](https://www.bilibili.com/video/BV1T84y1P7Kq) https://www.bilibili.com/video/BV1T84y1P7Kq
 * Переключение между версиями arpl (обновление меню, приращение):
-     ```shell
-     # Введите следующую команду в оболочке, чтобы изменить и обновить репозиторий.
-     # Если вы хотите переключиться на исходную версию, измените BikerIndian/arpl-i18n во второй команде на fbelavenuto/arpl
-     # Если вы переключитесь на китайскую версию, измените BikerIndian/arpl-i18n во второй команде на wjz304/arpl-zh_CN
-    CURREPO=`grep "github.com.*update" menu.sh | sed -r 's/.*com\/(.*)\/releases.*/\1/'`
-    sed -i "s|${CURREPO}|wjz304/arpl-i18n|g; s|ACTUALVERSION=\"v\${ARPL_VERSION}\"|ACTUALVERSION=\"v0.0\"|g" /opt/arpl/menu.sh
-    # Войдите в меню настроек, чтобы выполнить операцию обновления arpl.
-    # Пожалуйста, перезагрузите компьютер после обновления.
-    ```
+ ```shell
+ # Введите следующую команду в оболочке, чтобы изменить и обновить репозиторий.
+ # Если вы хотите переключиться на исходную версию, измените BikerIndian/arpl-i18n во второй команде на fbelavenuto/arpl
+ # Если вы переключитесь на китайскую версию, измените BikerIndian/arpl-i18n во второй команде на wjz304/arpl-zh_CN
+ CURREPO=`grep "github.com.*update" menu.sh | sed -r 's/.*com\/(.*)\/releases.*/\1/'`
+ sed -i "s|${CURREPO}|wjz304/arpl-i18n|g; s|ACTUALVERSION=\"v\${ARPL_VERSION}\"|ACTUALVERSION=\"v0.0\"|g" /opt/arpl/menu.sh
+ # Войдите в меню настроек, чтобы выполнить операцию обновления arpl.
+ # Пожалуйста, перезагрузите компьютер после обновления.
+ ```
+
 * Переключение между версиями arpl (ручной режим, полная версия):
  ```shell
  # Загрузите необходимую версию под оболочкой или вручную загрузите ее в /opt/arpl/
@@ -52,7 +53,7 @@
 ## переводить
 ```shell
 sudo apt install gettext
-git clone https://github.com/wjz304/arpl-i18n.git
+git clone https://github.com/BikerIndian/arpl-i18n.git
 cd arpl-i18n/files/board/arpl/overlayfs/opt/arpl
 xgettext -L Shell --keyword=TEXT *.sh -o lang/arpl.pot
 sed -i 's/charset=CHARSET/charset=UTF-8/' lang/arpl.pot    # The above process has been completed.
