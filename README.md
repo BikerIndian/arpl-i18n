@@ -30,23 +30,23 @@
 # Пожалуйста, перезагрузите компьютер после обновления.
     ```
 * Переключение между версиями arpl (ручной режим, полная версия):
-    ```shell
-    # Загрузите необходимую версию под оболочкой или вручную загрузите ее в /opt/arpl/
-    curl -kL https://github.com/fbelavenuto/arpl/releases/download/v1.1-beta2a/arpl-1.1-beta2a.img.zip -o /opt/arpl/arpl.zip
-    # Распаковать
-    unzip /opt/arpl/arpl.zip
-    # монтируем img
-    losetup /dev/loop0 /opt/arpl/arpl.img
-    # Копируем раздел p1 p3
-    mkdir -p /mnt/loop0p1; mount /dev/loop0p1 /mnt/loop0p1; cp -r /mnt/loop0p1/* /mnt/p1/; umount /mnt/loop0p1
-    mkdir -p /mnt/loop0p3; mount /dev/loop0p3 /mnt/loop0p2; cp -r /mnt/loop0p3/* /mnt/p3/; umount /mnt/loop0p3
-    # Удалить img
-    losetup -d /dev/loop0
-    # Если установленная версия не содержит DSM, который вы устанавливаете в данный момент, попробуйте удалить его. /mnt/p1/user-config.yml, /mnt/p3/*-dsm, /mnt/p2/*
-    rm -rf /mnt/p1/user-config.yml /mnt/p3/*-dsm /mnt/p2/*
-    # Перезапуск
-    reboot
-    ```
+ ```shell
+ # Загрузите необходимую версию под оболочкой или вручную загрузите ее в /opt/arpl/
+ curl -kL https://github.com/fbelavenuto/arpl/releases/download/v1.1-beta2a/arpl-1.1-beta2a.img.zip -o /opt/arpl/arpl.zip
+ # Распаковать
+ unzip /opt/arpl/arpl.zip
+ # монтируем img
+ losetup /dev/loop0 /opt/arpl/arpl.img
+ # Копируем раздел p1 p3
+ mkdir -p /mnt/loop0p1; mount /dev/loop0p1 /mnt/loop0p1; cp -r /mnt/loop0p1/* /mnt/p1/; umount /mnt/loop0p1
+ mkdir -p /mnt/loop0p3; mount /dev/loop0p3 /mnt/loop0p2; cp -r /mnt/loop0p3/* /mnt/p3/; umount /mnt/loop0p3
+ # Удалить img
+ losetup -d /dev/loop0
+ # Если установленная версия не содержит DSM, который вы устанавливаете в данный момент, попробуйте удалить его. /mnt/p1/user-config.yml, /mnt/p3/*-dsm, /mnt/p2/*
+ rm -rf /mnt/p1/user-config.yml /mnt/p3/*-dsm /mnt/p2/*
+ # Перезапуск
+ reboot
+ ```
 
 
 ## переводить
@@ -61,7 +61,7 @@ msginit -i lang/arpl.pot -l zh_CN.UTF-8 -o lang/zh_CN.po    # Replace the langua
 msgfmt lang/zh_CN.po -o lang/zh_CN.mo    # This process will be automatically processed during packaging.
 ```
 
-## поблагодарим таварища wjz304 ))
+## поблагодарим товарища wjz304 ))
 <img src="https://raw.githubusercontent.com/wjz304/wjz304/master/my/20220908134226.jpg" width="400">
 
 
