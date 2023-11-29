@@ -1,55 +1,55 @@
 # Automated Redpill Loader (i18n)
 
-本库为 arpl i18n (多语言优化版): 
+Библиотека arpl i18n (многоязычная оптимизированная версия):
 
-### 原版：
+### Оригинальная версия:
 <b>https://github.com/fbelavenuto/arpl</b>
-* [作者说明(En)](./arpl-README-En.md)
-* [作者说明(Zh)](./arpl-README-Zh.md)
+* [En](./arpl-README-En.md)
+* [Zh](./arpl-README-Zh.md)
 
-### 汉化：
+### Китайский язык:
 <b>https://github.com/wjz304/arpl-zh_CN</b>
-* 仅同步汉化原版, 所以功能与原版保持一致.
+* Синхронизируется только китайская оригинальная версия, поэтому функции остаются в соответствии с исходной версией.
 
 ### i18n: 
 <b>https://github.com/wjz304/arpl-i18n</b>
-* 多语言支持.
-* 包含我的修改.
+* Многоязычная поддержка.
+* Содержит мои модификации.
 
 
-## 说明
-* ### [命令输入方法演示](https://www.bilibili.com/video/BV1T84y1P7Kq)  https://www.bilibili.com/video/BV1T84y1P7Kq  
-* arpl各版本间切换(菜单更新, 增量):  
+## проиллюстрировать
+* ### [Демонстрация метода ввода команд](https://www.bilibili.com/video/BV1T84y1P7Kq) https://www.bilibili.com/video/BV1T84y1P7Kq
+* Переключение между версиями arpl (обновление меню, приращение):
     ```shell
-    # shell 下输入以下命令修改更新 repo. 
-    # 如果要切换原版修改第二条命令中的 wjz304/arpl-i18n 为 fbelavenuto/arpl
-    # 如果切换中文版修改第二条命令中的 wjz304/arpl-i18n 为 wjz304/arpl-zh_CN
+# Введите следующую команду в оболочке, чтобы изменить и обновить репозиторий.
+     # Если вы хотите переключиться на исходную версию, измените BikerIndian/arpl-i18n во второй команде на fbelavenuto/arpl
+     # Если вы переключитесь на китайскую версию, измените BikerIndian/arpl-i18n во второй команде на wjz304/arpl-zh_CN
     CURREPO=`grep "github.com.*update" menu.sh | sed -r 's/.*com\/(.*)\/releases.*/\1/'`
     sed -i "s|${CURREPO}|wjz304/arpl-i18n|g; s|ACTUALVERSION=\"v\${ARPL_VERSION}\"|ACTUALVERSION=\"v0.0\"|g" /opt/arpl/menu.sh
-    # 进入设置菜单执行更新arpl操作即可.
-    # 更新后请重启.
+# Войдите в меню настроек, чтобы выполнить операцию обновления arpl.
+# Пожалуйста, перезагрузите компьютер после обновления.
     ```
-* arpl各版本间切换(手动方式, 全量):  
+* Переключение между версиями arpl (ручной режим, полная версия):
     ```shell
-    # shell 下下载需要的版本或者手动上传到/opt/arpl/下
+    # Загрузите необходимую версию под оболочкой или вручную загрузите ее в /opt/arpl/
     curl -kL https://github.com/fbelavenuto/arpl/releases/download/v1.1-beta2a/arpl-1.1-beta2a.img.zip -o /opt/arpl/arpl.zip
-    # 解压
+    # Распаковать
     unzip /opt/arpl/arpl.zip
-    # 挂载 img
+    # монтируем img
     losetup /dev/loop0 /opt/arpl/arpl.img
-    # 复制 p1 p3 分区
+    # Копируем раздел p1 p3
     mkdir -p /mnt/loop0p1; mount /dev/loop0p1 /mnt/loop0p1; cp -r /mnt/loop0p1/* /mnt/p1/; umount /mnt/loop0p1
     mkdir -p /mnt/loop0p3; mount /dev/loop0p3 /mnt/loop0p2; cp -r /mnt/loop0p3/* /mnt/p3/; umount /mnt/loop0p3
-    # 卸载 img
+    # Удалить img
     losetup -d /dev/loop0
-    # 如果安装的版本中无你当前安装的DSM请尽量删除 /mnt/p1/user-config.yml, /mnt/p3/*-dsm, /mnt/p2/*
+    # Если установленная версия не содержит DSM, который вы устанавливаете в данный момент, попробуйте удалить его. /mnt/p1/user-config.yml, /mnt/p3/*-dsm, /mnt/p2/*
     rm -rf /mnt/p1/user-config.yml /mnt/p3/*-dsm /mnt/p2/*
-    # 重启
+    # Перезапуск
     reboot
     ```
 
 
-## 翻译
+## переводить
 ```shell
 sudo apt install gettext
 git clone https://github.com/wjz304/arpl-i18n.git
@@ -61,7 +61,7 @@ msginit -i lang/arpl.pot -l zh_CN.UTF-8 -o lang/zh_CN.po    # Replace the langua
 msgfmt lang/zh_CN.po -o lang/zh_CN.mo    # This process will be automatically processed during packaging.
 ```
 
-## 打赏一下
+## поблагодарим таварища wjz304 ))
 <img src="https://raw.githubusercontent.com/wjz304/wjz304/master/my/20220908134226.jpg" width="400">
 
 
